@@ -34,7 +34,8 @@ if __name__ == '__main__':
 
     _status = ["ON", "OFF", "ACTIVE", "INACTIVE"]
 
-    while True:
+    
+    for _ in range(5):
         id = random.randint(1, 10)
         pressure = random.uniform(100.00, 1000.00)
         status = random.choice(_status)
@@ -44,3 +45,5 @@ if __name__ == '__main__':
         server_proxy.store(device.json_format())
 
         time.sleep(3)
+    
+    server_proxy.histogram(f'sensor-{random.randint(1,10)}')
